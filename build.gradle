@@ -1,0 +1,53 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.micronaut.application") version "4.2.1"
+    id("org.openrewrite.rewrite") version "5.12.0"
+}
+
+version = "0.1"
+group = "org.saltations.hephaestus"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("info.picocli:picocli-codegen")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    annotationProcessor("io.micronaut.validation:micronaut-validation-processor")
+    implementation("info.picocli:picocli")
+    implementation("io.micronaut.picocli:micronaut-picocli")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("io.micronaut.validation:micronaut-validation")
+    implementation("jakarta.validation:jakarta.validation-api")
+    compileOnly("org.projectlombok:lombok")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    testImplementation("org.mockito:mockito-core")
+    rewrite("org.openrewrite.recipe:rewrite-micronaut:1.15.1")
+}
+
+
+application {
+    mainClass.set("org.saltations.hephaestus.HephCommand")
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
+}
+
+
+micronaut {
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("org.saltations.hephaestus.*")
+    }
+}
+
+
+rewrite {
+    activeRecipe("org.openrewrite.java.micronaut.Micronaut2to3Migration")
+}
+
+
