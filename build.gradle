@@ -20,16 +20,28 @@ dependencies {
     implementation("io.micronaut.picocli:micronaut-picocli")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.micronaut.validation:micronaut-validation")
+    implementation("io.micronaut.toml:micronaut-toml")
     implementation("jakarta.validation:jakarta.validation-api")
+    implementation("com.google.guava:guava:33.0.0-jre")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("ch.qos.logback:logback-classic")
+
+    // Template Engine and Template Coniguration
+
+    implementation("org.tomlj:tomlj:1.1.1")
+    implementation("org.freemarker:freemarker:2.3.32")
+    implementation("org.antlr:ST4:4.3.4")
+
+    // Testing related
+
     testImplementation("org.mockito:mockito-core")
+
     rewrite("org.openrewrite.recipe:rewrite-micronaut:1.15.1")
 }
 
 
 application {
-    mainClass.set("org.saltations.hephaestus.HephCommand")
+    mainClass.set("org.saltations.hephaestus.HEPHApp")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
