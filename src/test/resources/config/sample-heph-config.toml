@@ -1,0 +1,54 @@
+[heph]
+version = "0.1.0"
+description = "Heph is a command line code generator for projects, files, and snippets"
+
+[cabinet.default]
+description = "Home cabinet"
+path = "file://~/.heph/cabinet"
+
+    [cabinet.default.shelf.shelf1]
+    description = "The Top Shelf"
+    path = "shelf1"
+
+        [[cabinet.default.shelf.shelf1.entry]]
+        name = "src"
+        type = "directory"
+        description = "Source code"
+        path = "src"
+
+        [[cabinet.default.shelf.shelf1.entry]]
+        name = "file-1-java"
+        type = "file"
+        description = "Entity File 1"
+        path = "src/file1.java"
+
+        [[cabinet.default.shelf.shelf1.entry]]
+        name = "file-2-java"
+        description = "File 2"
+        path = "src/file2.java"
+
+[cabinet.cab2]
+description = "Home cabinet"
+path = "file://~/.heph/cabinet"
+
+    [cabinet.cab2.shelf.shelf1]
+    description = "The Top Shelf"
+    path = "shelf1"
+
+        [[cabinet.cab2.shelf.shelf1.entry]]
+        name = "src"
+        type = "directory"
+        description = "Source code"
+        path = "src"
+
+        [[cabinet.cab2.shelf.shelf1.entry]]
+        name = "file-1-java"
+        type = "file"
+        description = "Entity File 1"
+        path = "src/file1.java"
+
+# model snippets
+
+# model models
+
+# model projects

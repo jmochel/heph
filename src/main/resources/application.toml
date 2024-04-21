@@ -1,2 +1,5 @@
 [micronaut.application]
 name = "heph"
+
+[heph]
+config-folder = "${user.home}/.heph"

@@ -23,6 +23,7 @@ dependencies {
     implementation("io.micronaut.toml:micronaut-toml")
     implementation("jakarta.validation:jakarta.validation-api")
     implementation("com.google.guava:guava:33.0.0-jre")
+    implementation("com.electronwill.night-config:toml:3.6.7")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("ch.qos.logback:logback-classic")
 

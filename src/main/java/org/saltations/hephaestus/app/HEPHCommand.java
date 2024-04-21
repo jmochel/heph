@@ -1,9 +1,8 @@
-package org.saltations.hephaestus;
+package org.saltations.hephaestus.app;
 
 import io.micronaut.configuration.picocli.PicocliRunner;
 
 import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
 
 @Command(name = "heph", description = "Template Code Generator",
         mixinStandardHelpOptions = true,
@@ -16,13 +15,13 @@ import picocli.CommandLine.Option;
               @|green  | |  | | |____| |    | |  | |  |@
               @|green  |_|  |_|______|_|    |_|  |_|  |@
              """},
-        subcommands = {HEPHTemplateCommand.class, HEPHGenerateCommand.class}
+        subcommands = {HEPHInitCommand.class, HEPHShowConfigCommand.class}
 )
 
-public class HEPHApp implements Runnable {
+public class HEPHCommand implements Runnable {
 
-    public static void main(String[] args) throws Exception {
-        PicocliRunner.run(HEPHApp.class, args);
+    public static void main(String... args) throws Exception {
+        PicocliRunner.run(HEPHCommand.class, args);
     }
 
     public void run() {

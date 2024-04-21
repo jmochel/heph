@@ -9,6 +9,7 @@ import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.saltations.hephaestus.app.HEPHCommand;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,7 +25,7 @@ public class HEPHPrefs
 {
     private static final String KEY_FOR_USERS_CABINET = "heph-users-template-cabinet";
 
-    private final Preferences preferences =  Preferences.userNodeForPackage(HEPHApp.class);
+    private final Preferences preferences = Preferences.userNodeForPackage(HEPHCommand.class);
 
     private final String envPrefix;
 
